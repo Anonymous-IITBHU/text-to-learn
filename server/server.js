@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const healthRoute = require('./routes/health');
+const meRoute = require('./routes/me');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 // ---------------------------------------------------------------------------
 app.use('/api/health', healthRoute);
+app.use('/api/me', meRoute);
 
 // Catch-all for undefined routes
 app.use((_req, res) => {
